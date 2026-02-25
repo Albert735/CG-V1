@@ -4,6 +4,8 @@ export default function RootLayout() {
     return (
         <Tabs screenOptions={{ headerShown: false }}>
             <Tabs.Screen name="index" options={{ headerShown: false }} />
+            <Tabs.Screen name="calendar" options={{ headerShown: false }} />
+            <Tabs.Screen name="chat" options={{ headerShown: false }} />
         </Tabs>
     );
 }

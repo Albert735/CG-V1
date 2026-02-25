@@ -1,15 +1,25 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import HeaderNav from "../../components/header-nav";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Couple Goals</Text>
+    <View style={styles.container}>
+      <HeaderNav />
+      <View style={styles.content}>
+        <Text>Couple Goals</Text>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
