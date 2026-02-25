@@ -1,14 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import HeaderNav from "../../components/header-nav";
+import { Colors } from "../../constants/Theme";
 
 export default function Calendar() {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: Colors.background }]}>
       <StatusBar style="light" />
       <HeaderNav />
       <View style={styles.content}>
-        <Text style={styles.text}>Calendar</Text>
+        <Text style={[styles.text, { color: Colors.textSecondary }]}>
+          Calendar
+        </Text>
       </View>
     </View>
   );
@@ -17,7 +20,6 @@ export default function Calendar() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2D1B24",
   },
   content: {
     flex: 1,
@@ -25,7 +27,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    color: "#D4A5A2",
     fontSize: 18,
   },
 });

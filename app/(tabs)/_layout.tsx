@@ -1,19 +1,19 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Octicons from "@expo/vector-icons/Octicons";
-
 import { Tabs } from "expo-router";
 import { Platform } from "react-native";
+import { Colors } from "../../constants/Theme";
 
 export default function RootLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#FD7F5C",
-        tabBarInactiveTintColor: "#D4A5A2",
+        tabBarActiveTintColor: Colors.tabBar.active,
+        tabBarInactiveTintColor: Colors.tabBar.inactive,
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: "#3D242E",
+          backgroundColor: Colors.tabBar.background,
           borderTopWidth: 0,
           height: Platform.OS === "ios" ? 88 : 70,
           paddingBottom: Platform.OS === "ios" ? 30 : 12,
@@ -26,10 +26,6 @@ export default function RootLayout() {
           right: 0,
           elevation: 0,
           shadowOpacity: 0,
-        },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "500",
         },
       }}
     >

@@ -3,6 +3,7 @@ import { DrawerActions } from "@react-navigation/native";
 import { useNavigation } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Colors } from "../constants/Theme";
 
 export default function HeaderNav() {
   const navigation = useNavigation();
@@ -18,14 +19,17 @@ export default function HeaderNav() {
     <View style={[styles.header, { paddingTop: insets.top }]}>
       {/* Drawer menu toggle button */}
       <TouchableOpacity onPress={toggleDrawer} style={styles.iconButton}>
-        <Ionicons name="menu" size={28} color="#FD7F5C" />
-        <Text className="text-xl font-bold ml-2 text-[#FD7F5C]">US</Text>
+        <Ionicons name="menu" size={28} color={Colors.primary} />
+        <Text className="text-xl font-bold ml-2 text-primary">US</Text>
       </TouchableOpacity>
 
       {/* Profile button - positioned at the opposite end via justifyContent: 'space-between' */}
       <TouchableOpacity onPress={() => {}} style={styles.iconButton}>
-        <View className="bg-[#3D242E] p-2 rounded-full border border-[#5B3E45]">
-          <Text className="text-lg font-light text-[#D4A5A2]">JM</Text>
+        <View
+          className="bg-secondary py-2 px-2.5 rounded-full border"
+          style={{ borderColor: Colors.border }}
+        >
+          <Text className="text-lg font-light text-muted">JM</Text>
         </View>
       </TouchableOpacity>
     </View>

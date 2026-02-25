@@ -1,14 +1,68 @@
+import Anniversary from "@/components/anniversary";
+import SharedLists from "@/components/shared-lists";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
+import Animated, {
+  Extrapolation,
+  interpolate,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue,
+} from "react-native-reanimated";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ActivityCard from "../../components/activity-card";
 import HeaderNav from "../../components/header-nav";
+import { Colors } from "../../constants/Theme";
 
 export default function Index() {
+  const scrollY = useSharedValue(0);
+  const insets = useSafeAreaInsets();
+
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: (event) => {
+      scrollY.value = event.contentOffset.y;
+    },
+  });
+
+  const headerBgStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(
+      scrollY.value,
+      [0, 50],
+      [0, 1],
+      Extrapolation.CLAMP,
+    );
+    return {
+      opacity,
+    };
+  });
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: Colors.background }]}>
       <StatusBar style="light" />
-      <HeaderNav />
-      <ActivityCard />
+
+      {/* Animated Status Bar Background */}
+      <Animated.View
+        style={[
+          styles.statusBarBg,
+          {
+            height: insets.top,
+            backgroundColor: Colors.secondaryBackground,
+          },
+          headerBgStyle,
+        ]}
+      />
+
+      <Animated.ScrollView
+        onScroll={scrollHandler}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <HeaderNav />
+        <ActivityCard />
+        <Anniversary />
+        <SharedLists />
+      </Animated.ScrollView>
     </View>
   );
 }
@@ -16,11 +70,15 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2D1B24",
   },
-  content: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  statusBarBg: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+  },
+  scrollContent: {
+    paddingBottom: 110, // Extra padding for the absolute positioned tab bar
   },
 });

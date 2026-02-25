@@ -3,17 +3,25 @@ import { LogBox } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../global.css";
 
-
+import { Colors } from "../constants/Theme";
 
 LogBox.ignoreAllLogs(true);
 
 export default function RootLayout() {
   return (
     <GestureHandlerRootView>
-      <Drawer screenOptions={{ headerShown: false }}>
+      <Drawer
+        screenOptions={{
+          headerShown: false,
+          drawerStyle: {
+            backgroundColor: Colors.background,
+          },
+          drawerActiveTintColor: Colors.primary,
+          drawerInactiveTintColor: Colors.text,
+        }}
+      >
         <Drawer.Screen name="(tabs)" options={{ headerShown: false }} />
       </Drawer>
     </GestureHandlerRootView>
-
   );
 }
