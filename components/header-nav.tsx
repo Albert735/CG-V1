@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { DrawerActions } from "@react-navigation/native";
 import { useNavigation } from "expo-router";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HeaderNav() {
@@ -18,12 +18,15 @@ export default function HeaderNav() {
         <View style={[styles.header, { paddingTop: insets.top }]}>
             {/* Drawer menu toggle button */}
             <TouchableOpacity onPress={toggleDrawer} style={styles.iconButton}>
-                <Ionicons name="menu" size={28} color="black" />
+                <Ionicons name="menu" size={28} color="#FD7F5C" />
+                <Text className="text-xl font-bold ml-2 text-[#FD7F5C]">US</Text>
             </TouchableOpacity>
 
             {/* Profile button - positioned at the opposite end via justifyContent: 'space-between' */}
             <TouchableOpacity onPress={() => { }} style={styles.iconButton}>
-                <Ionicons name="person-circle-outline" size={28} color="black" />
+                <View className="bg-[#3D242E] p-2 rounded-full border border-[#5B3E45]">
+                    <Text className="text-lg font-light text-[#D4A5A2]">JM</Text>
+                </View>
             </TouchableOpacity>
         </View>
     );
@@ -41,5 +44,7 @@ const styles = StyleSheet.create({
     },
     iconButton: {
         padding: 5,
+        flexDirection: "row",
+        alignItems: "center",
     },
 });

@@ -1,6 +1,7 @@
 import { Drawer } from "expo-router/drawer";
 import { LogBox } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import "../global.css";
 
 
 

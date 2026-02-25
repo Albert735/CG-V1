@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View } from "react-native";
 import HeaderNav from "../../components/header-nav";
+
 
 export default function Index() {
   return (
     <View style={styles.container}>
+      <StatusBar style="light" />
       <HeaderNav />
-      <View style={styles.content}>
-        <Text>Couple Goals</Text>
-      </View>
+
     </View>
   );
 }
@@ -15,7 +16,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#2D1B24",
   },
   content: {
     flex: 1,
