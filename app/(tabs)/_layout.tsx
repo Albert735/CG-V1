@@ -1,3 +1,6 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
+import Octicons from "@expo/vector-icons/Octicons";
+
 import { Tabs } from "expo-router";
 import { Platform } from "react-native";
 
@@ -8,7 +11,7 @@ export default function RootLayout() {
         headerShown: false,
         tabBarActiveTintColor: "#FD7F5C",
         tabBarInactiveTintColor: "#D4A5A2",
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: "#3D242E",
           borderTopWidth: 0,
@@ -30,9 +33,44 @@ export default function RootLayout() {
         },
       }}
     >
-      <Tabs.Screen name="index" options={{ headerShown: false }} />
-      <Tabs.Screen name="calendar" options={{ headerShown: false }} />
-      <Tabs.Screen name="chat" options={{ headerShown: false }} />
+      <Tabs.Screen
+        name="index"
+        options={{
+          headerShown: false,
+          title: "Home",
+
+          tabBarIcon: ({ color, focused }) => (
+            <Octicons name="home" size={28} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="calendar"
+        options={{
+          headerShown: false,
+          title: "Calendar",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="calendar-clear-outline" size={28} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="chat"
+        options={{
+          headerShown: false,
+          title: "Chat",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="chatbubble-outline" size={28} color={color} />
+          ),
+          tabBarBadge: 3,
+          tabBarBadgeStyle: {
+            backgroundColor: "#FD7F5C",
+            color: "white",
+          },
+        }}
+      />
     </Tabs>
   );
 }
