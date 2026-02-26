@@ -30,7 +30,7 @@ export default function Anniversary() {
         <View className="flex-row items-start gap-3">
           <Feather name="arrow-up-right" size={40} color={Colors.primary} />
           <Text
-            className="text-[64px] leading-[64px] font-normal"
+            className="text-[72px] leading-[72px] font-normal"
             style={{ color: Colors.primary }}
           >
             12

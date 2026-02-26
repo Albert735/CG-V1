@@ -1,22 +1,22 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../constants/Theme";
+import sharedList from "../mock/shared-list-data";
 
 export default function SharedLists() {
   return (
-    <View
-      className="mx-5 mt-3 pt-6 border-b  "
-      style={{ borderColor: Colors.border }}
-    >
-      <View className="flex-row justify-between items-center ">
+    <View className="mx-5 mt-4 pt-6 pb-3">
+      {/* Header */}
+      <View className="flex-row justify-between items-center mb-4">
         <Text
-          className="text-sm font-medium tracking-wider"
+          className="text-xs font-semibold tracking-widest"
           style={{ color: Colors.text }}
         >
           SHARED LISTS
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity className="px-2 py-1">
           <Text
-            className="text-sm font-medium tracking-wider"
+            className="text-xs font-semibold tracking-widest"
             style={{ color: Colors.primary }}
           >
             VIEW ALL
@@ -24,31 +24,54 @@ export default function SharedLists() {
         </TouchableOpacity>
       </View>
 
-      <View className="flex-row items-center gap-3 mt-4">
-        {[1, 2, 3].map((item) => (
+      {/* Shared Lists */}
+      <FlatList
+        data={sharedList}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 16 }}
+        ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+        renderItem={({ item }) => (
           <View
-            key={item}
-            className="w-12 h-12 rounded-2xl border"
-            style={{
-              backgroundColor: Colors.secondaryBackground,
-              borderColor: Colors.border,
-            }}
-          />
-        ))}
-        <TouchableOpacity
-          className="w-12 h-12 rounded-2xl border items-center justify-center"
-          style={{
-            backgroundColor: Colors.secondaryBackground,
-            borderColor: Colors.border,
-          }}
-        >
-          <Text
-            style={{ color: Colors.primary, fontSize: 24, fontWeight: "300" }}
+            className="flex-row items-center justify-between border-b  pb-2 my-2"
+            style={{ borderColor: Colors.border }}
           >
-            +
-          </Text>
-        </TouchableOpacity>
-      </View>
+            {/* Left Content */}
+            <View className="flex-1 pr-3">
+              <Text
+                className="text-[18px] font-medium"
+                style={{ color: Colors.textLight }}
+              >
+                {item.name}
+              </Text>
+
+              <View className="flex-row items-center gap-2 mt-1">
+                <Text
+                  className="text-sm font-medium"
+                  style={{ color: Colors.text }}
+                >
+                  {item.items} items
+                </Text>
+                <Text
+                  className="text-sm font-medium"
+                  style={{ color: Colors.text }}
+                >
+                  •
+                </Text>
+                <Text
+                  className="text-sm font-medium"
+                  style={{ color: Colors.text }}
+                >
+                  updated {item.time}
+                </Text>
+              </View>
+            </View>
+
+            {/* Right Icon */}
+            <Feather name="arrow-up-right" size={20} color={Colors.primary} />
+          </View>
+        )}
+      />
     </View>
   );
 }

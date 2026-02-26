@@ -12,6 +12,7 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ActivityCard from "../../components/activity-card";
 import HeaderNav from "../../components/header-nav";
+import RecentlyAdded from "../../components/recently-added";
 import { Colors } from "../../constants/Theme";
 
 export default function Index() {
@@ -62,6 +63,7 @@ export default function Index() {
         <ActivityCard />
         <Anniversary />
         <SharedLists />
+        <RecentlyAdded />
       </Animated.ScrollView>
     </View>
   );
@@ -70,6 +72,8 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "100%",
+    gap: 20,
   },
   statusBarBg: {
     position: "absolute",
