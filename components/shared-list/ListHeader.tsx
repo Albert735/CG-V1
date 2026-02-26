@@ -37,7 +37,7 @@ export function ListHeader({ title, participants }: ListHeaderProps) {
         {participants.map((p, index) => (
           <View
             key={p.name}
-            className="w-10 h-10 rounded-full items-center justify-center -ml-3"
+            className="w-12 h-12 rounded-full items-center justify-center -ml-3"
             style={{
               backgroundColor: p.avatarBg,
               borderWidth: 2,
@@ -48,7 +48,7 @@ export function ListHeader({ title, participants }: ListHeaderProps) {
             <Text
               style={{
                 color: p.avatarColor,
-                fontSize: 14,
+                fontSize: 12,
                 letterSpacing: 0.5,
               }}
             >

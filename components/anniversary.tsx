@@ -1,8 +1,10 @@
 import Feather from "@expo/vector-icons/Feather";
-import { Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../constants/Theme";
 
 export default function Anniversary() {
+  const router = useRouter();
   return (
     <View
       className="mx-5 mt-6 pt-6 border-t"
@@ -27,7 +29,10 @@ export default function Anniversary() {
       {/* Big Number Row */}
       <View className="items-start">
         {/* Number Row */}
-        <View className="flex-row items-start gap-3">
+        <TouchableOpacity
+          onPress={() => router.push("/anniversary-page")}
+          className="flex-row items-start gap-3"
+        >
           <Feather name="arrow-up-right" size={40} color={Colors.primary} />
           <Text
             className="text-[72px] leading-[72px] font-normal"
@@ -35,7 +40,7 @@ export default function Anniversary() {
           >
             12
           </Text>
-        </View>
+        </TouchableOpacity>
 
         {/* Caption */}
         <Text

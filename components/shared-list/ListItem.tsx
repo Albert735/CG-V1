@@ -47,10 +47,20 @@ export function ListItem({
         {text}
       </Text>
       <View
-        className="w-5 h-5 rounded-full items-center justify-center opacity-70"
-        style={{ backgroundColor: avatarBg }}
+        className="w-7 h-7 rounded-full items-center justify-center"
+        style={{
+          backgroundColor: Colors.secondaryBackground, // softer bg
+          borderWidth: 1,
+          borderColor: Colors.border,
+        }}
       >
-        <Text className="text-[8px] font-bold" style={{ color: avatarColor }}>
+        <Text
+          style={{
+            fontSize: 10,
+            fontWeight: "500",
+            color: Colors.primary,
+          }}
+        >
           {addedBy}
         </Text>
       </View>

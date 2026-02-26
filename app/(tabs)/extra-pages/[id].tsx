@@ -4,7 +4,7 @@ import { ListHeader } from "@/components/shared-list/ListHeader";
 import { ListItem } from "@/components/shared-list/ListItem";
 import { Colors } from "@/constants/Theme";
 import sharedListData from "@/mock/shared-list-data";
-import initialItemsMap from "@/mock/shred-list-items";
+import initialItemsMap from "@/mock/shared-list-items";
 import { useLocalSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useMemo, useState } from "react";

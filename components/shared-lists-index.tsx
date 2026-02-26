@@ -33,46 +33,53 @@ export default function SharedLists() {
         contentContainerStyle={{ paddingBottom: 16 }}
         ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => router.push(item.link as any)}>
-            <View
-              className="flex-row items-center justify-between border-b  pb-2 my-2"
-              style={{ borderColor: Colors.border }}
-            >
-              {/* Left Content */}
-              <View className="flex-1 pr-3">
-                <Text
-                  className="text-[18px] font-medium"
-                  style={{ color: Colors.textLight }}
-                >
-                  {item.name}
-                </Text>
+          <>
+            {/* <TouchableOpacity onPress={() => router.push(item.link as any)}> */}
+            <TouchableOpacity onPress={() => router.push(item.link as any)}>
+              <View
+                className="flex-row items-center justify-between border-b  pb-2 my-2"
+                style={{ borderColor: Colors.border }}
+              >
+                {/* Left Content */}
+                <View className="flex-1 pr-3">
+                  <Text
+                    className="text-[18px] font-medium"
+                    style={{ color: Colors.textLight }}
+                  >
+                    {item.name}
+                  </Text>
 
-                <View className="flex-row items-center gap-2 mt-1">
-                  <Text
-                    className="text-sm font-medium"
-                    style={{ color: Colors.text }}
-                  >
-                    {item.items} items
-                  </Text>
-                  <Text
-                    className="text-sm font-medium"
-                    style={{ color: Colors.text }}
-                  >
-                    •
-                  </Text>
-                  <Text
-                    className="text-sm font-medium"
-                    style={{ color: Colors.text }}
-                  >
-                    updated {item.time}
-                  </Text>
+                  <View className="flex-row items-center gap-2 mt-1">
+                    <Text
+                      className="text-sm font-medium"
+                      style={{ color: Colors.text }}
+                    >
+                      {item.items} items
+                    </Text>
+                    <Text
+                      className="text-sm font-medium"
+                      style={{ color: Colors.text }}
+                    >
+                      •
+                    </Text>
+                    <Text
+                      className="text-sm font-medium"
+                      style={{ color: Colors.text }}
+                    >
+                      updated {item.time}
+                    </Text>
+                  </View>
                 </View>
-              </View>
 
-              {/* Right Icon */}
-              <Feather name="arrow-up-right" size={20} color={Colors.primary} />
-            </View>
-          </TouchableOpacity>
+                {/* Right Icon */}
+                <Feather
+                  name="arrow-up-right"
+                  size={20}
+                  color={Colors.primary}
+                />
+              </View>
+            </TouchableOpacity>
+          </>
         )}
       />
     </View>

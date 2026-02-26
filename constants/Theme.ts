@@ -13,6 +13,9 @@ export const Colors = {
     text: "#2D1B24",
     subtext: "#7A5C64",
   },
+  secondary: "#3D242E",
+  muted: "#D4A5A2",
+  "muted-foreground": "#CFA19F",
   border: "#4D363C",
   tabBar: {
     background: "#3D242E",

@@ -1,8 +1,10 @@
+import { useRouter } from "expo-router";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../constants/Theme";
 import recentlyAdded from "../mock/recent-data";
 
 export default function RecentlyAdded() {
+  const router = useRouter();
   return (
     <View className="flex-col gap-4  mt-10">
       <View
@@ -28,19 +30,24 @@ export default function RecentlyAdded() {
         }}
         ItemSeparatorComponent={() => <View style={{ width: 12 }} />} // spacing between cards
         renderItem={({ item }) => (
-          <TouchableOpacity>
-            <View
-              className="w-[150px] h-[250px] rounded-3xl p-5 justify-end"
-              style={{ backgroundColor: Colors.secondaryBackground }}
+          <>
+            {/* <TouchableOpacity onPress={() => router.push("/memory-archive/[id]")}> */}
+            <TouchableOpacity
+              onPress={() => router.push(`/memory-archive/${item.id}`)}
             >
-              <Text
-                className="flex text-lg font-semibold text-left"
-                style={{ color: Colors.textLight }}
+              <View
+                className="w-[150px] h-[250px] rounded-3xl p-5 justify-end"
+                style={{ backgroundColor: Colors.secondaryBackground }}
               >
-                {item.name}
-              </Text>
-            </View>
-          </TouchableOpacity>
+                <Text
+                  className="flex text-lg font-semibold text-left"
+                  style={{ color: Colors.textLight }}
+                >
+                  {item.name}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </>
         )}
       />
     </View>
