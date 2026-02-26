@@ -27,6 +27,9 @@ export default function RootLayout() {
           elevation: 0,
           shadowOpacity: 0,
         },
+        tabBarItemStyle: {
+          flex: 1,
+        },
       }}
     >
       <Tabs.Screen
@@ -34,8 +37,7 @@ export default function RootLayout() {
         options={{
           headerShown: false,
           title: "Home",
-
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <Octicons name="home" size={28} color={color} />
           ),
         }}
@@ -46,7 +48,7 @@ export default function RootLayout() {
         options={{
           headerShown: false,
           title: "Calendar",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <Ionicons name="calendar-clear-outline" size={28} color={color} />
           ),
         }}
@@ -57,7 +59,7 @@ export default function RootLayout() {
         options={{
           headerShown: false,
           title: "Chat",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <Ionicons name="chatbubble-outline" size={28} color={color} />
           ),
           tabBarBadge: 3,
@@ -65,6 +67,15 @@ export default function RootLayout() {
             backgroundColor: "#FD7F5C",
             color: "white",
           },
+        }}
+      />
+
+      <Tabs.Screen
+        name="extra-pages/[id]"
+        options={{
+          headerShown: false,
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: "none" }, // fully removes it from layout
         }}
       />
     </Tabs>

@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   daySelected: {
-    backgroundColor: Colors.primary,
+    backgroundColor: "#3D242E",
   },
   dayText: {
     fontSize: 16,

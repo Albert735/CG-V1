@@ -1,5 +1,5 @@
 import Anniversary from "@/components/anniversary";
-import SharedLists from "@/components/shared-lists";
+import SharedLists from "@/components/shared-lists-index";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import Animated, {
