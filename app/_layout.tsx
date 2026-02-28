@@ -20,7 +20,26 @@ export default function RootLayout() {
           drawerInactiveTintColor: Colors.text,
         }}
       >
-        <Drawer.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Drawer.Screen
+          name="(tabs)"
+          options={{ headerShown: false, drawerLabel: "Home", title: "Home" }}
+        />
+        <Drawer.Screen
+          name="(no-tabs)/anniversary-page"
+          options={{
+            headerShown: false,
+            drawerLabel: "Anniversary Page",
+            title: "Anniversary Page",
+          }}
+        />
+        <Drawer.Screen
+          name="(no-tabs)/memory-archive/[id]"
+          options={{
+            headerShown: false,
+            drawerLabel: "Memory Archive",
+            title: "Memory Archive",
+          }}
+        />
       </Drawer>
     </GestureHandlerRootView>
   );
